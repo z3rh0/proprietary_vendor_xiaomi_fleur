@@ -1246,6 +1246,8 @@ PRODUCT_PACKAGES += \
     mediatek-ims-base \
     mediatek-ims-common \
     mediatek-ims-extension-plugin \
+    ims-merged \
+    ims-plugin-libs \
     mediatek-telecom-common \
     mediatek-telephony-base \
     mediatek-telephony-common \

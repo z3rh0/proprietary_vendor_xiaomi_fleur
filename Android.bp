@@ -28256,3 +28256,22 @@ cc_prebuilt_binary {
     prefer: true,
     system_ext_specific: true,
 }
+
+// VoLTE fix: give the prebuilt ImsService the classpath it requests via
+// <uses-library android:name="com.mediatek.ims.plugin"/>. Without it the app dies at
+// startup on NoClassDefFoundError: com.android.internal.telephony.metrics.TelephonyMetrics.
+dex_import {
+    name: "ims-merged",
+    owner: "xiaomi",
+    jars: [
+        "proprietary/system/framework/ims-merged.jar",
+    ],
+}
+
+prebuilt_etc_xml {
+    name: "ims-plugin-libs",
+    owner: "xiaomi",
+    src: "proprietary/system/etc/permissions/ims-plugin-libs.xml",
+    filename: "ims-plugin-libs.xml",
+    sub_dir: "permissions",
+}
